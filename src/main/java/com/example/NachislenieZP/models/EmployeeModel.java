@@ -1,13 +1,15 @@
 package com.example.NachislenieZP.models;
 
 public final class EmployeeModel {
+
+    private static int autoincrement = 0;
     private long id;
     private String name;
     private String post;
     private int salary;
 
-    public EmployeeModel(Long id,  String name, String post, int salary) {
-        this.id = id;
+    public EmployeeModel(String name, String post, int salary) {
+        this.id = autoincrement++;
         this.name = name;
         this.post = post;
         this.salary = salary;

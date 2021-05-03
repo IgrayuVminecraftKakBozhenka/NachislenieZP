@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.*;
@@ -20,6 +21,18 @@ public final class MainController {
         employees.addAll(EmployeeRepository.getAll());
         model.addAttribute("employees", employees);
         return "main";
+    }
+
+    @GetMapping("/add")
+    public String add(Model model) {
+        return "add";
+    }
+
+    @PostMapping("/add")
+    public String employeeAdd(@RequestParam String name, @RequestParam String post, @RequestParam int salary, Model model) {
+        EmployeeModel employeeModel = new EmployeeModel(name, post, salary);
+        EmployeeRepository.insertEmployee(employeeModel);
+        return "redirect:/";
     }
 
 }

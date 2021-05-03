@@ -5,9 +5,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-    <div>Список сотрудников</div>
-    <div th:each="element : ${employees}">
 
+    <div>Список сотрудников</div>
+    <a href="/add">Добавить сотрудника</a>
+    <div th:each="element : ${employees}">
+        <div th:text="${element.name} + ' ' + ${element.post} + ' ' + ${element.salary}"/>
     </div>
 </body>
 </html>
