@@ -9,7 +9,8 @@
     <div>Список сотрудников</div>
     <a href="/add">Добавить сотрудника</a>
     <div th:each="element : ${employees}">
-        <div th:text="${element.name} + ' ' + ${element.post} + ' ' + ${element.salary}"/>
+        <div th:text="${element.id} + ' ' + ${element.name} + ' ' + ${element.post} + ' ' + ${element.salary}"/>
+
     </div>
 </body>
 </html>
