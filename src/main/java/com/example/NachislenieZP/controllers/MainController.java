@@ -21,7 +21,7 @@ public final class MainController {
     public String main(Model model) {
         Map<EmployeeModel, List<String>> employees = new HashMap<EmployeeModel, List<String>>();
         employees.putAll(EmployeeRepository.getAll());
-        model.addAttribute("title", "Главная страница");
+        model.addAttribute("employees", employees);
         return "main";
     }
 
