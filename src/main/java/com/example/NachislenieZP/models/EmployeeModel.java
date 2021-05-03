@@ -1,4 +1,4 @@
-package com.example.NachislenieZP;
+package com.example.NachislenieZP.models;
 
 public final class EmployeeModel {
     private final String name;
