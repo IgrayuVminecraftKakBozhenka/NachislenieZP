@@ -10,13 +10,13 @@ import java.util.Map;
 public class EmployeeRepository {
     private EmployeeRepository() {}
 
-    private static Map<EmployeeModel, List<String>> employeeRepository = new HashMap<EmployeeModel, List<String>>();
+    private static List<EmployeeModel> employeeRepository = new ArrayList<>();
 
-    public static void insertEmployee(EmployeeModel employeeModel, List<String> accrual) {
-        employeeRepository.put(employeeModel, accrual);
+    public static void insertEmployee(EmployeeModel employeeModel) {
+        employeeRepository.add(employeeModel);
     }
 
-    public static Map<EmployeeModel, List<String>> getAll() {
+    public static List<EmployeeModel> getAll() {
         return employeeRepository;
     }
 

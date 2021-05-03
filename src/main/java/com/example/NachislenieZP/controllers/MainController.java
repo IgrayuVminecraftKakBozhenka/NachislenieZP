@@ -8,10 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public final class MainController {
@@ -19,8 +16,8 @@ public final class MainController {
 
     @GetMapping("/")
     public String main(Model model) {
-        Map<EmployeeModel, List<String>> employees = new HashMap<EmployeeModel, List<String>>();
-        employees.putAll(EmployeeRepository.getAll());
+        List<EmployeeModel> employees = new ArrayList<>();
+        employees.addAll(EmployeeRepository.getAll());
         model.addAttribute("employees", employees);
         return "main";
     }
