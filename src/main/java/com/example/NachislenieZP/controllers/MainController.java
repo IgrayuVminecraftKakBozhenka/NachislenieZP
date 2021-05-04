@@ -55,8 +55,7 @@ public final class MainController {
 
     @PostMapping("/edit")
     public String employeeEdit(@RequestParam int id, @RequestParam String name, @RequestParam String post, @RequestParam int salary, Model model) {
-        Long longId = Long.valueOf(id);
-        EmployeeRepository.editEmployee(longId, name, post, salary);
+        EmployeeRepository.editEmployee(id, name, post, salary);
         return "redirect:/";
     }
 
