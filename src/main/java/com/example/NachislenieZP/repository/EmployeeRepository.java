@@ -2,13 +2,13 @@ package com.example.NachislenieZP.repository;
 
 import com.example.NachislenieZP.models.EmployeeModel;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-public class EmployeeRepository {
-    private EmployeeRepository() {}
+
+
+public final class EmployeeRepository {
+    private EmployeeRepository() {
+    }
 
     private static List<EmployeeModel> employeeRepository = new ArrayList<>();
 
@@ -18,6 +18,29 @@ public class EmployeeRepository {
 
     public static List<EmployeeModel> getAll() {
         return employeeRepository;
+    }
+
+    public static void delete(String name) {
+        Iterator<EmployeeModel> employeesIterator = employeeRepository.iterator();
+        while (employeesIterator.hasNext()) {
+            EmployeeModel nextEmployee = employeesIterator.next();
+            if (nextEmployee.getName().equals(name)) {
+                employeesIterator.remove();
+            }
+        }
+    }
+
+    public static void editEmployee(long id, String name, String post, int salary) {
+        Iterator<EmployeeModel> employeesIterator = employeeRepository.iterator();
+        while (employeesIterator.hasNext()) {
+            EmployeeModel nextEmployee = employeesIterator.next();
+            final long employeeId = nextEmployee.getId();
+            if (employeeId == id) {
+                nextEmployee.setName(name);
+                nextEmployee.setPost(post);
+                nextEmployee.setSalary(salary);
+            }
+        }
     }
 
 }
