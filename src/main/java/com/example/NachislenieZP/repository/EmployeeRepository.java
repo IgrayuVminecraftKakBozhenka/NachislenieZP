@@ -43,4 +43,16 @@ public final class EmployeeRepository {
         }
     }
 
+    public static String getEmployeeNameById(int id) {
+        Iterator<EmployeeModel> employeesIterator = employeeRepository.iterator();
+        while (employeesIterator.hasNext()) {
+            EmployeeModel nextEmployee = employeesIterator.next();
+            final long employeeId = nextEmployee.getId();
+            if (employeeId == id) {
+                return nextEmployee.getName();
+            }
+        }
+        return "Null";
+    }
+
 }

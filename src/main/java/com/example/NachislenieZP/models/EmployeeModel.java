@@ -3,7 +3,7 @@ package com.example.NachislenieZP.models;
 public final class EmployeeModel {
 
     private static int autoincrement = 0;
-    private int id;
+    private long id;
     private String name;
     private String post;
     private int salary;

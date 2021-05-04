@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/add" method="post">
+        <div><input type="text" name="name" placeholder="ФИО"></div>
+        <div><input type="text" name="post" placeholder="Пост"></div>
+        <div><input type="number" name="salary" placeholder="Зарплата"></div>
+        <div><button type="submit">Добавить</button></div>
+    </form>
+
+    <div th:each="element : ${salary}">
+        <div th:text="${element.employeeId} + ' ' + ${element.} + ' ' + ${element.post} + ' ' + ${element.salary}">
+        </div>
+
+</body>
+</html>
