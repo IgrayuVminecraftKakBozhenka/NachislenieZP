@@ -5,7 +5,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
+
     <div>Список сотрудников</div>
-    <li><a href="#">Зубенко Михаил Петрович</a></li>
+    <a href="/add">Добавить сотрудника</a>
+    <a href="/delete">Удалить сотрудника</a>
+    <a href="/edit">Редактировать сотрудника</a>
+    <a href="/accrual">Начисления</a>
+    <div th:each="element : ${employees}">
+        <div th:text="${element.id} + ' ' + ${element.name} + ' ' + ${element.post} + ' ' + ${element.salary}"/>
+    </div>
 </body>
 </html>
