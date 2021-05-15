@@ -2,7 +2,8 @@ package com.example.NachislenieZP.models;
 
 import com.example.NachislenieZP.repository.EmployeeRepository;
 
-public class SalaryModel {
+public final class SalaryModel {
+
     private final int employeeId;
     private final String employeeName;
     private final String date;
@@ -14,4 +15,22 @@ public class SalaryModel {
         this.date = date;
         this.sum = sum;
     }
+
+    public int getEmployeeId() {
+        return employeeId;
+    }
+
+    public String getEmployeeName() {
+        return employeeName;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public int getSum() {
+        return sum;
+    }
+
+
 }

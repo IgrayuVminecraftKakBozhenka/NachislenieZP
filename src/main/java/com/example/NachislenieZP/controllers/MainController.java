@@ -1,7 +1,9 @@
 package com.example.NachislenieZP.controllers;
 
 import com.example.NachislenieZP.models.EmployeeModel;
+import com.example.NachislenieZP.models.SalaryModel;
 import com.example.NachislenieZP.repository.EmployeeRepository;
+import com.example.NachislenieZP.repository.SalaryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,6 +40,14 @@ public final class MainController {
         return "edit";
     }
 
+    @GetMapping("/accrual")
+    public String accrual(Model model) {
+        List<SalaryModel> salary = new ArrayList<>();
+        salary.addAll(SalaryRepository.getAll());
+        model.addAttribute("salary", salary);
+        return "accrual";
+    }
+
     @PostMapping("/add")
     public String employeeAdd(@RequestParam String name, @RequestParam String post, @RequestParam int salary, Model model) {
         EmployeeModel employeeModel = new EmployeeModel(name, post, salary);
@@ -59,4 +69,10 @@ public final class MainController {
         return "redirect:/";
     }
 
+    @PostMapping("/accrual")
+    public String accrualAdd(@RequestParam int id, @RequestParam String date, @RequestParam int summ, Model model) {
+        SalaryModel salaryModel = new SalaryModel(id, date, summ);
+        SalaryRepository.insertSalary(salaryModel);
+        return "redirect:/";
+    }
 }
